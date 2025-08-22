@@ -1,0 +1,210 @@
+// =============================================================================
+// MIXINS
+// =============================================================================
+
+// Responsive breakpoint mixins
+@mixin media-up($breakpoint) {
+  @if map-has-key($container-max-widths, $breakpoint) {
+    @media (min-width: map-get($container-max-widths, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$breakpoint}";
+  }
+}
+
+@mixin media-down($breakpoint) {
+  @if map-has-key($container-max-widths, $breakpoint) {
+    @media (max-width: map-get($container-max-widths, $breakpoint) - 1px) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$breakpoint}";
+  }
+}
+
+@mixin media-between($min, $max) {
+  @if map-has-key($container-max-widths, $min) and map-has-key($container-max-widths, $max) {
+    @media (min-width: map-get($container-max-widths, $min)) and (max-width: map-get($container-max-widths, $max) - 1px) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$min} or #{$max}";
+  }
+}
+
+// Flexbox mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// Typography mixins
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-break {
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+// Button mixins
+@mixin button-variant($background, $border, $color) {
+  background-color: $background;
+  border: 1px solid $border;
+  color: $color;
+  
+  &:hover {
+    background-color: darken($background, 10%);
+    border-color: darken($border, 10%);
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($background, 0.3);
+  }
+  
+  &:active {
+    background-color: darken($background, 15%);
+  }
+}
+
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  border-radius: $border-radius;
+}
+
+// Form mixins
+@mixin form-control-focus($color: $primary) {
+  &:focus {
+    border-color: $color;
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba($color, 0.1);
+  }
+}
+
+// Animation mixins
+@mixin fade-in($duration: $transition-base) {
+  animation: fadeIn $duration ease-in-out;
+}
+
+@mixin slide-up($duration: $transition-base) {
+  animation: slideUp $duration ease-out;
+}
+
+@mixin slide-down($duration: $transition-base) {
+  animation: slideDown $duration ease-out;
+}
+
+// Shadow mixins
+@mixin shadow-elevation($level: 1) {
+  @if $level == 1 {
+    box-shadow: $shadow-sm;
+  } @else if $level == 2 {
+    box-shadow: $shadow;
+  } @else if $level == 3 {
+    box-shadow: $shadow-md;
+  } @else if $level == 4 {
+    box-shadow: $shadow-lg;
+  } @else if $level == 5 {
+    box-shadow: $shadow-xl;
+  }
+}
+
+// Border mixins
+@mixin border-radius($radius: $border-radius) {
+  border-radius: $radius;
+}
+
+@mixin border($width: 1px, $style: solid, $color: $gray-200) {
+  border: $width $style $color;
+}
+
+// Spacing mixins
+@mixin margin($top: null, $right: null, $bottom: null, $left: null) {
+  @if $top != null { margin-top: $top; }
+  @if $right != null { margin-right: $right; }
+  @if $bottom != null { margin-bottom: $bottom; }
+  @if $left != null { margin-left: $left; }
+}
+
+@mixin padding($top: null, $right: null, $bottom: null, $left: null) {
+  @if $top != null { padding-top: $top; }
+  @if $right != null { padding-right: $right; }
+  @if $bottom != null { padding-bottom: $bottom; }
+  @if $left != null { padding-left: $left; }
+}
+
+// Utility mixins
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Grid mixins
+@mixin make-col($size, $columns: $grid-columns) {
+  flex: 0 0 percentage($size / $columns);
+  max-width: percentage($size / $columns);
+}
+
+@mixin make-col-offset($size, $columns: $grid-columns) {
+  margin-left: percentage($size / $columns);
+}
+
+// Container mixins
+@mixin make-container($max-widths: $container-max-widths) {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $spacing-4;
+  padding-left: $spacing-4;
+  
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-up($breakpoint) {
+      max-width: $container-max-width;
+    }
+  }
+}

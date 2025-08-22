@@ -1,0 +1,414 @@
+// =============================================================================
+// SPACING UTILITIES
+// =============================================================================
+
+// Import variables and mixins
+@import "../variables/variables";
+@import "../variables/mixins";
+
+// Margin utilities
+@each $size, $value in (
+  0: $spacing-0,
+  1: $spacing-1,
+  2: $spacing-2,
+  3: $spacing-3,
+  4: $spacing-4,
+  5: $spacing-5,
+  6: $spacing-6,
+  8: $spacing-8,
+  10: $spacing-10,
+  12: $spacing-12,
+  16: $spacing-16,
+  20: $spacing-20,
+  24: $spacing-24,
+  32: $spacing-32
+) {
+  .m-#{$size} { margin: $value !important; }
+  .mt-#{$size} { margin-top: $value !important; }
+  .mr-#{$size} { margin-right: $value !important; }
+  .mb-#{$size} { margin-bottom: $value !important; }
+  .ml-#{$size} { margin-left: $value !important; }
+  .mx-#{$size} { 
+    margin-left: $value !important;
+    margin-right: $value !important;
+  }
+  .my-#{$size} { 
+    margin-top: $value !important;
+    margin-bottom: $value !important;
+  }
+}
+
+// Negative margins
+@each $size, $value in (
+  1: $spacing-1,
+  2: $spacing-2,
+  3: $spacing-3,
+  4: $spacing-4,
+  5: $spacing-5,
+  6: $spacing-6,
+  8: $spacing-8,
+  10: $spacing-10,
+  12: $spacing-12,
+  16: $spacing-16,
+  20: $spacing-20,
+  24: $spacing-24,
+  32: $spacing-32
+) {
+  .m-n#{$size} { margin: -$value !important; }
+  .mt-n#{$size} { margin-top: -$value !important; }
+  .mr-n#{$size} { margin-right: -$value !important; }
+  .mb-n#{$size} { margin-bottom: -$value !important; }
+  .ml-n#{$size} { margin-left: -$value !important; }
+  .mx-n#{$size} { 
+    margin-left: -$value !important;
+    margin-right: -$value !important;
+  }
+  .my-n#{$size} { 
+    margin-top: -$value !important;
+    margin-bottom: -$value !important;
+  }
+}
+
+// Auto margins
+.m-auto { margin: auto !important; }
+.mt-auto { margin-top: auto !important; }
+.mr-auto { margin-right: auto !important; }
+.mb-auto { margin-bottom: auto !important; }
+.ml-auto { margin-left: auto !important; }
+.mx-auto { 
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.my-auto { 
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
+// Padding utilities
+@each $size, $value in (
+  0: $spacing-0,
+  1: $spacing-1,
+  2: $spacing-2,
+  3: $spacing-3,
+  4: $spacing-4,
+  5: $spacing-5,
+  6: $spacing-6,
+  8: $spacing-8,
+  10: $spacing-10,
+  12: $spacing-12,
+  16: $spacing-16,
+  20: $spacing-20,
+  24: $spacing-24,
+  32: $spacing-32
+) {
+  .p-#{$size} { padding: $value !important; }
+  .pt-#{$size} { padding-top: $value !important; }
+  .pr-#{$size} { padding-right: $value !important; }
+  .pb-#{$size} { padding-bottom: $value !important; }
+  .pl-#{$size} { padding-left: $value !important; }
+  .px-#{$size} { 
+    padding-left: $value !important;
+    padding-right: $value !important;
+  }
+  .py-#{$size} { 
+    padding-top: $value !important;
+    padding-bottom: $value !important;
+  }
+}
+
+// Responsive spacing utilities
+@each $breakpoint in map-keys($container-max-widths) {
+  $infix: "-#{$breakpoint}";
+  
+  @include media-up($breakpoint) {
+    @each $size, $value in (
+      0: $spacing-0,
+      1: $spacing-1,
+      2: $spacing-2,
+      3: $spacing-3,
+      4: $spacing-4,
+      5: $spacing-5,
+      6: $spacing-6,
+      8: $spacing-8,
+      10: $spacing-10,
+      12: $spacing-12,
+      16: $spacing-16,
+      20: $spacing-20,
+      24: $spacing-24,
+      32: $spacing-32
+    ) {
+      .m#{$infix}-#{$size} { margin: $value !important; }
+      .mt#{$infix}-#{$size} { margin-top: $value !important; }
+      .mr#{$infix}-#{$size} { margin-right: $value !important; }
+      .mb#{$infix}-#{$size} { margin-bottom: $value !important; }
+      .ml#{$infix}-#{$size} { margin-left: $value !important; }
+      .mx#{$infix}-#{$size} { 
+        margin-left: $value !important;
+        margin-right: $value !important;
+      }
+      .my#{$infix}-#{$size} { 
+        margin-top: $value !important;
+        margin-bottom: $value !important;
+      }
+      
+      .p#{$infix}-#{$size} { padding: $value !important; }
+      .pt#{$infix}-#{$size} { padding-top: $value !important; }
+      .pr#{$infix}-#{$size} { padding-right: $value !important; }
+      .pb#{$infix}-#{$size} { padding-bottom: $value !important; }
+      .pl#{$infix}-#{$size} { padding-left: $value !important; }
+      .px#{$infix}-#{$size} { 
+        padding-left: $value !important;
+        padding-right: $value !important;
+      }
+      .py#{$infix}-#{$size} { 
+        padding-top: $value !important;
+        padding-bottom: $value !important;
+      }
+    }
+    
+    // Responsive auto margins
+    .m#{$infix}-auto { margin: auto !important; }
+    .mt#{$infix}-auto { margin-top: auto !important; }
+    .mr#{$infix}-auto { margin-right: auto !important; }
+    .mb#{$infix}-auto { margin-bottom: auto !important; }
+    .ml#{$infix}-auto { margin-left: auto !important; }
+    .mx#{$infix}-auto { 
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    .my#{$infix}-auto { 
+      margin-top: auto !important;
+      margin-bottom: auto !important;
+    }
+  }
+}
+
+// Gap utilities (for flexbox and grid)
+@each $size, $value in (
+  0: $spacing-0,
+  1: $spacing-1,
+  2: $spacing-2,
+  3: $spacing-3,
+  4: $spacing-4,
+  5: $spacing-5,
+  6: $spacing-6,
+  8: $spacing-8,
+  10: $spacing-10,
+  12: $spacing-12,
+  16: $spacing-16,
+  20: $spacing-20,
+  24: $spacing-24,
+  32: $spacing-32
+) {
+  .gap-#{$size} { gap: $value !important; }
+  .gap-x-#{$size} { column-gap: $value !important; }
+  .gap-y-#{$size} { row-gap: $value !important; }
+}
+
+// Responsive gap utilities
+@each $breakpoint in map-keys($container-max-widths) {
+  $infix: "-#{$breakpoint}";
+  
+  @include media-up($breakpoint) {
+    @each $size, $value in (
+      0: $spacing-0,
+      1: $spacing-1,
+      2: $spacing-2,
+      3: $spacing-3,
+      4: $spacing-4,
+      5: $spacing-5,
+      6: $spacing-6,
+      8: $spacing-8,
+      10: $spacing-10,
+      12: $spacing-12,
+      16: $spacing-16,
+      20: $spacing-20,
+      24: $spacing-24,
+      32: $spacing-32
+    ) {
+      .gap#{$infix}-#{$size} { gap: $value !important; }
+      .gap-x#{$infix}-#{$size} { column-gap: $value !important; }
+      .gap-y#{$infix}-#{$size} { row-gap: $value !important; }
+    }
+  }
+}
+
+// Space between utilities
+.space-x > * + * {
+  margin-left: $spacing-4;
+}
+
+.space-y > * + * {
+  margin-top: $spacing-4;
+}
+
+@each $size, $value in (
+  1: $spacing-1,
+  2: $spacing-2,
+  3: $spacing-3,
+  4: $spacing-4,
+  5: $spacing-5,
+  6: $spacing-6,
+  8: $spacing-8,
+  10: $spacing-10,
+  12: $spacing-12,
+  16: $spacing-16,
+  20: $spacing-20,
+  24: $spacing-24,
+  32: $spacing-32
+) {
+  .space-x-#{$size} > * + * {
+    margin-left: $value;
+  }
+  
+  .space-y-#{$size} > * + * {
+    margin-top: $value;
+  }
+}
+
+// Responsive space utilities
+@each $breakpoint in map-keys($container-max-widths) {
+  $infix: "-#{$breakpoint}";
+  
+  @include media-up($breakpoint) {
+    @each $size, $value in (
+      1: $spacing-1,
+      2: $spacing-2,
+      3: $spacing-3,
+      4: $spacing-4,
+      5: $spacing-5,
+      6: $spacing-6,
+      8: $spacing-8,
+      10: $spacing-10,
+      12: $spacing-12,
+      16: $spacing-16,
+      20: $spacing-20,
+      24: $spacing-24,
+      32: $spacing-32
+    ) {
+      .space-x#{$infix}-#{$size} > * + * {
+        margin-left: $value;
+      }
+      
+      .space-y#{$infix}-#{$size} > * + * {
+        margin-top: $value;
+      }
+    }
+  }
+}
+
+// Container spacing
+.container {
+  &.container-spacious {
+    padding-left: $spacing-6;
+    padding-right: $spacing-6;
+    
+    @include media-up(md) {
+      padding-left: $spacing-8;
+      padding-right: $spacing-8;
+    }
+  }
+  
+  &.container-compact {
+    padding-left: $spacing-2;
+    padding-right: $spacing-2;
+    
+    @include media-up(md) {
+      padding-left: $spacing-3;
+      padding-right: $spacing-3;
+    }
+  }
+}
+
+// Section spacing
+.section {
+  padding: $spacing-16 0;
+  
+  &.section-sm {
+    padding: $spacing-8 0;
+  }
+  
+  &.section-lg {
+    padding: $spacing-24 0;
+  }
+  
+  &.section-xl {
+    padding: $spacing-32 0;
+  }
+}
+
+// Responsive section spacing
+@include media-down(md) {
+  .section {
+    padding: $spacing-8 0;
+    
+    &.section-sm {
+      padding: $spacing-6 0;
+    }
+    
+    &.section-lg {
+      padding: $spacing-16 0;
+    }
+    
+    &.section-xl {
+      padding: $spacing-24 0;
+    }
+  }
+}
+
+// Stack utilities
+.stack {
+  display: flex;
+  flex-direction: column;
+  
+  > * + * {
+    margin-top: $spacing-4;
+  }
+}
+
+@each $size, $value in (
+  1: $spacing-1,
+  2: $spacing-2,
+  3: $spacing-3,
+  4: $spacing-4,
+  5: $spacing-5,
+  6: $spacing-6,
+  8: $spacing-8,
+  10: $spacing-10,
+  12: $spacing-12,
+  16: $spacing-16,
+  20: $spacing-20,
+  24: $spacing-24,
+  32: $spacing-32
+) {
+  .stack-#{$size} > * + * {
+    margin-top: $value;
+  }
+}
+
+// Responsive stack utilities
+@each $breakpoint in map-keys($container-max-widths) {
+  $infix: "-#{$breakpoint}";
+  
+  @include media-up($breakpoint) {
+    @each $size, $value in (
+      1: $spacing-1,
+      2: $spacing-2,
+      3: $spacing-3,
+      4: $spacing-4,
+      5: $spacing-5,
+      6: $spacing-6,
+      8: $spacing-8,
+      10: $spacing-10,
+      12: $spacing-12,
+      16: $spacing-16,
+      20: $spacing-20,
+      24: $spacing-24,
+      32: $spacing-32
+    ) {
+      .stack#{$infix}-#{$size} > * + * {
+        margin-top: $value;
+      }
+    }
+  }
+}

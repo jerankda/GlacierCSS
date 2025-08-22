@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlacierCSS - Complete Demo</title>
+    <link rel="stylesheet" href="../dist/glaciercss.min.css">
+    <style>
+        /* Custom demo styles */
+        .demo-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .demo-section:last-child {
+            border-bottom: none;
+        }
+        
+        .demo-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .demo-nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e7eb;
+            z-index: 1000;
+        }
+        
+        .demo-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+        
+        .demo-nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .demo-nav-links a {
+            color: #374151;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .demo-nav-links a:hover {
+            color: #3b82f6;
+        }
+        
+        .demo-grid-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+        
+        .demo-color-swatch {
+            width: 100%;
+            height: 60px;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .demo-color-swatch.light {
+            color: #1f2937;
+        }
+        
+        .demo-spacing-box {
+            background: #3b82f6;
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .demo-typography-example {
+            margin-bottom: 1rem;
+        }
+        
+        .demo-typography-example:last-child {
+            margin-bottom: 0;
+        }
+        
+        .demo-utility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .demo-code-block {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        .demo-feature-card {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        
+        .demo-feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .demo-breakpoint-indicator {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: #3b82f6;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            z-index: 1001;
+        }
+        
+        .alert {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .alert-info {
+            background-color: #dbeafe;
+            border: 1px solid #93c5fd;
+            color: #1e40af;
+        }
+        
+        .alert-info strong {
+            color: #1e3a8a;
+        }
+        
+        code {
+            background-color: #f3f4f6;
+            padding: 0.125rem 0.25rem;
+            border-radius: 0.25rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875em;
+            color: #dc2626;
+        }
+        
+        @media (max-width: 575px) {
+            .demo-breakpoint-indicator::after { content: "XS"; }
+        }
+        @media (min-width: 576px) and (max-width: 767px) {
+            .demo-breakpoint-indicator::after { content: "SM"; }
+        }
+        @media (min-width: 768px) and (max-width: 991px) {
+            .demo-breakpoint-indicator::after { content: "MD"; }
+        }
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .demo-breakpoint-indicator::after { content: "LG"; }
+        }
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .demo-breakpoint-indicator::after { content: "XL"; }
+        }
+        @media (min-width: 1400px) {
+            .demo-breakpoint-indicator::after { content: "XXL"; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Breakpoint Indicator -->
+    <div class="demo-breakpoint-indicator">
+        Breakpoint: <span></span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="demo-nav">
+        <div class="container">
+            <h1 class="h3 mb-0">GlacierCSS Demo</h1>
+            <div class="demo-nav-links">
+                <a href="#typography">Typography</a>
+                <a href="#grid">Grid</a>
+                <a href="#components">Components</a>
+                <a href="#utilities">Utilities</a>
+                <a href="#spacing">Spacing</a>
+                <a href="#colors">Colors</a>
+                <a href="#responsive">Responsive</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="demo-header">
+        <div class="container">
+            <h1 class="h1 mb-4">GlacierCSS Complete Demo</h1>
+            <p class="text-xl mb-6">A comprehensive showcase of all framework features</p>
+            <div class="d-flex justify-content-center gap-4 flex-wrap">
+                <button class="btn btn-primary btn-lg">Get Started</button>
+                <button class="btn btn-outline-light btn-lg">Documentation</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Typography Section -->
+    <section id="typography" class="demo-section">
+        <div class="container">
+            <h2 class="h2 text-center mb-8">Typography System</h2>
+            
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <h3 class="h4 mb-4">Heading Scale</h3>
+                    <div class="demo-typography-example">
+                        <h1 class="h1">Heading 1 - Main Title</h1>
+                        <h2 class="h2">Heading 2 - Section Title</h2>
+                        <h3 class="h3">Heading 3 - Subsection</h3>
+                        <h4 class="h4">Heading 4 - Card Title</h4>
+                        <h5 class="h5">Heading 5 - Small Title</h5>
+                        <h6 class="h6">Heading 6 - Tiny Title</h6>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-lg-6">
+                    <h3 class="h4 mb-4">Text Sizes</h3>
+                    <div class="demo-typography-example">
+                        <p class="text-xs">Extra Small Text (.text-xs)</p>
+                        <p class="text-sm">Small Text (.text-sm)</p>
+                        <p class="text-base">Base Text (.text-base)</p>
+                        <p class="text-lg">Large Text (.text-lg)</p>
+                        <p class="text-xl">Extra Large Text (.text-xl)</p>
+                        <p class="text-2xl">2XL Text (.text-2xl)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-6">
+                <div class="col-12 col-lg-6">
+                    <h3 class="h4 mb-4">Font Weights</h3>
+                    <div class="demo-typography-example">
+                        <p class="font-light">Light Weight (.font-light)</p>
+                        <p class="font-normal">Normal Weight (.font-normal)</p>
+                        <p class="font-medium">Medium Weight (.font-medium)</p>
+                        <p class="font-semibold">Semibold Weight (.font-semibold)</p>
+                        <p class="font-bold">Bold Weight (.font-bold)</p>
+                        <p class="font-extrabold">Extra Bold Weight (.font-extrabold)</p>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-lg-6">
+                    <h3 class="h4 mb-4">Text Alignment</h3>
+                    <div class="demo-typography-example">
+                        <p class="text-left">Left Aligned Text (.text-left)</p>
+                        <p class="text-center">Center Aligned Text (.text-center)</p>
+                        <p class="text-right">Right Aligned Text (.text-right)</p>
+                        <p class="text-justify">Justified Text (.text-justify) - This text is justified to create even margins on both sides.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-6">
+                <div class="col-12">
+                    <h3 class="h4 mb-4">Text Utilities</h3>
+                    <div class="demo-utility-grid">
+                        <div class="card p-4">
+                            <p class="text-truncate">This is a very long text that will be truncated with ellipsis when it overflows its container.</p>
+                        </div>
+                        <div class="card p-4">
+                            <p class="text-break">ThisIsAVeryLongWordThatWillBreakToPreventOverflow</p>
+                        </div>
+                        <div class="card p-4">
+                            <p class="uppercase">Uppercase text transformation</p>
+                        </div>
+                        <div class="card p-4">
+                            <p class="lowercase">LOWERCASE TEXT TRANSFORMATION</p>
+                        </div>
+                        <div class="card p-4">
+                            <p class="capitalize">capitalize text transformation</p>
+                        </div>
+                        <div class="card p-4">
+                            <p class="underline">Underlined text</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid System Section -->
+    <section id="grid" class="demo-section">
+        <div class="container">
+            <h2 class="h2 text-center mb-8">Grid System</h2>
+            
+            <h3 class="h4 mb-4">12-Column Grid</h3>
+            <div class="row mb-6">
+                <div class="col-1"><div class="demo-grid-item">col-1</div></div>
+                <div class="col-1"><div class="demo-grid-item">col-1</div></div>
+                <div class="col-1"><div class="demo-grid-item">col-1</div></div>
+                <div class="col-1"><div class="demo-grid-item">col-1</div></div>
+                <div class="col-1"><div class="demo-grid-item">col-1</div></div>
+                <div class="col-1"><div class="demo-grid-item">col-1</div></div>
+                <div class="col-1"><div class="demo-grid-item">col-1</div></div>
+                <div class="col-1"><div class="demo-grid-item">col-1</div></div>
+                <div class="col-1"><div class="demo-grid-item">col-1</div></div>
+                <div class="col-1"><div class="demo-grid-item">col-1</div></div>
+                <div class="col-1"><div class="demo-grid-item">col-1</div></div>
+                <div class="col-1"><div class="demo-grid-item">col-1</div></div>
+            </div>
+
+            <h3 class="h4 mb-4">Responsive Grid</h3>
+            <div class="row mb-6">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="demo-grid-item">col-12 col-md-6 col-lg-4</div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="demo-grid-item">col-12 col-md-6 col-lg-4</div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="demo-grid-item">col-12 col-md-6 col-lg-4</div>
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4">Grid Utilities</h3>
+            <div class="row mb-6">
+                <div class="col-6">
+                    <div class="demo-grid-item">col-6</div>
+                </div>
+                <div class="col-6">
+                    <div class="demo-grid-item">col-6</div>
+                </div>
+            </div>
+
+            <div class="row mb-6">
+                <div class="col-4 offset-2">
+                    <div class="demo-grid-item">col-4 offset-2</div>
+                </div>
+                <div class="col-4">
+                    <div class="demo-grid-item">col-4</div>
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4">Flexbox Utilities</h3>
+            <div class="d-flex justify-content-between align-items-center mb-4 p-4 bg-gray-100 rounded">
+                <div>Item 1</div>
+                <div>Item 2</div>
+                <div>Item 3</div>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center mb-4 p-4 bg-gray-100 rounded">
+                <div>Centered Item</div>
+            </div>
+
+            <div class="d-flex justify-content-around align-items-stretch mb-4 p-4 bg-gray-100 rounded">
+                <div class="p-2">Stretched Item 1</div>
+                <div class="p-2">Stretched Item 2</div>
+                <div class="p-2">Stretched Item 3</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Components Section -->
+    <section id="components" class="demo-section">
+        <div class="container">
+            <h2 class="h2 text-center mb-8">Components</h2>
+            
+            <h3 class="h4 mb-4">Buttons</h3>
+            <div class="mb-6">
+                <div class="d-flex gap-3 flex-wrap mb-4">
+                    <button class="btn btn-primary">Primary</button>
+                    <button class="btn btn-secondary">Secondary</button>
+                    <button class="btn btn-success">Success</button>
+                    <button class="btn btn-warning">Warning</button>
+                    <button class="btn btn-danger">Danger</button>
+                    <button class="btn btn-info">Info</button>
+                    <button class="btn btn-light">Light</button>
+                    <button class="btn btn-dark">Dark</button>
+                </div>
+                
+                <div class="d-flex gap-3 flex-wrap mb-4">
+                    <button class="btn btn-outline-primary">Outline Primary</button>
+                    <button class="btn btn-outline-secondary">Outline Secondary</button>
+                    <button class="btn btn-outline-success">Outline Success</button>
+                    <button class="btn btn-outline-warning">Outline Warning</button>
+                    <button class="btn btn-outline-danger">Outline Danger</button>
+                </div>
+                
+                <div class="d-flex gap-3 flex-wrap mb-4">
+                    <button class="btn btn-ghost-primary">Ghost Primary</button>
+                    <button class="btn btn-ghost-secondary">Ghost Secondary</button>
+                    <button class="btn btn-ghost-success">Ghost Success</button>
+                </div>
+                
+                <div class="d-flex gap-3 flex-wrap mb-4">
+                    <button class="btn btn-primary btn-sm">Small</button>
+                    <button class="btn btn-primary">Default</button>
+                    <button class="btn btn-primary btn-lg">Large</button>
+                    <button class="btn btn-primary btn-xl">Extra Large</button>
+                </div>
+                
+                <div class="d-flex gap-3 flex-wrap mb-4">
+                    <button class="btn btn-primary btn-block">Block Button</button>
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4">Cards</h3>
+            <div class="row mb-6">
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Basic Card</h4>
+                            <p class="card-subtitle">Card subtitle</p>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">This is a basic card with header, body, and footer sections.</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary btn-sm">Action</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card card-elevated hover-lift">
+                        <div class="card-body">
+                            <h4 class="card-title">Elevated Card</h4>
+                            <p class="card-text">This card has elevation and hover effects for better interactivity.</p>
+                            <button class="btn btn-outline-primary">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h4 class="card-title">Primary Card</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">A themed card with primary colors and styling.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-6">
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="card card-borderless">
+                        <div class="card-body">
+                            <h4 class="card-title">Borderless Card</h4>
+                            <p class="card-text">A card without borders, using shadows for definition.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="card card-interactive">
+                        <div class="card-body">
+                            <h4 class="card-title">Interactive Card</h4>
+                            <p class="card-text">This card has interactive hover and click effects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Utilities Section -->
+    <section id="utilities" class="demo-section">
+        <div class="container">
+            <h2 class="h2 text-center mb-8">Utility Classes</h2>
+            
+            <h3 class="h4 mb-4">Display Utilities</h3>
+            <div class="demo-utility-grid mb-6">
+                <div class="card p-4">
+                    <div class="d-block">.d-block</div>
+                </div>
+                <div class="card p-4">
+                    <div class="d-inline">.d-inline</div>
+                </div>
+                <div class="card p-4">
+                    <div class="d-inline-block">.d-inline-block</div>
+                </div>
+                <div class="card p-4">
+                    <div class="d-flex">.d-flex</div>
+                </div>
+                <div class="card p-4">
+                    <div class="d-inline-flex">.d-inline-flex</div>
+                </div>
+                <div class="card p-4">
+                    <div class="d-none">.d-none (hidden)</div>
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4">Position Utilities</h3>
+            <div class="demo-utility-grid mb-6">
+                <div class="card p-4">
+                    <div class="position-static">.position-static</div>
+                </div>
+                <div class="card p-4">
+                    <div class="position-relative">.position-relative</div>
+                </div>
+                <div class="card p-4">
+                    <div class="position-absolute">.position-absolute</div>
+                </div>
+                <div class="card p-4">
+                    <div class="position-fixed">.position-fixed</div>
+                </div>
+                <div class="card p-4">
+                    <div class="position-sticky">.position-sticky</div>
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4">Text Utilities</h3>
+            <div class="demo-utility-grid mb-6">
+                <div class="card p-4">
+                    <div class="text-left">.text-left</div>
+                </div>
+                <div class="card p-4">
+                    <div class="text-center">.text-center</div>
+                </div>
+                <div class="card p-4">
+                    <div class="text-right">.text-right</div>
+                </div>
+                <div class="card p-4">
+                    <div class="text-justify">.text-justify</div>
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4">Float Utilities</h3>
+            <div class="demo-utility-grid mb-6">
+                <div class="card p-4">
+                    <div class="float-left">.float-left</div>
+                </div>
+                <div class="card p-4">
+                    <div class="float-right">.float-right</div>
+                </div>
+                <div class="card p-4">
+                    <div class="float-none">.float-none</div>
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4">Overflow Utilities</h3>
+            <div class="demo-utility-grid mb-6">
+                <div class="card p-4">
+                    <div class="overflow-auto" style="height: 60px; overflow: auto;">
+                        <div style="height: 100px;">.overflow-auto - Scrollable content</div>
+                    </div>
+                </div>
+                <div class="card p-4">
+                    <div class="overflow-hidden" style="height: 60px; overflow: hidden;">
+                        <div style="height: 100px;">.overflow-hidden - Hidden overflow</div>
+                    </div>
+                </div>
+                <div class="card p-4">
+                    <div class="overflow-visible" style="height: 60px; overflow: visible;">
+                        <div style="height: 100px;">.overflow-visible - Visible overflow</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4">Cursor Utilities</h3>
+            <div class="demo-utility-grid mb-6">
+                <div class="card p-4">
+                    <div class="cursor-pointer">.cursor-pointer</div>
+                </div>
+                <div class="card p-4">
+                    <div class="cursor-default">.cursor-default</div>
+                </div>
+                <div class="card p-4">
+                    <div class="cursor-not-allowed">.cursor-not-allowed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spacing Section -->
+    <section id="spacing" class="demo-section">
+        <div class="container">
+            <h2 class="h2 text-center mb-8">Spacing System</h2>
+            
+            <h3 class="h4 mb-4">Margin Utilities</h3>
+            <div class="demo-utility-grid mb-6">
+                <div class="demo-spacing-box m-0">.m-0</div>
+                <div class="demo-spacing-box m-1">.m-1</div>
+                <div class="demo-spacing-box m-2">.m-2</div>
+                <div class="demo-spacing-box m-3">.m-3</div>
+                <div class="demo-spacing-box m-4">.m-4</div>
+                <div class="demo-spacing-box m-5">.m-5</div>
+                <div class="demo-spacing-box m-6">.m-6</div>
+                <div class="demo-spacing-box m-8">.m-8</div>
+            </div>
+
+            <h3 class="h4 mb-4">Padding Utilities</h3>
+            <div class="demo-utility-grid mb-6">
+                <div class="demo-spacing-box p-0">.p-0</div>
+                <div class="demo-spacing-box p-1">.p-1</div>
+                <div class="demo-spacing-box p-2">.p-2</div>
+                <div class="demo-spacing-box p-3">.p-3</div>
+                <div class="demo-spacing-box p-4">.p-4</div>
+                <div class="demo-spacing-box p-5">.p-5</div>
+                <div class="demo-spacing-box p-6">.p-6</div>
+                <div class="demo-spacing-box p-8">.p-8</div>
+            </div>
+
+            <h3 class="h4 mb-4">Directional Spacing</h3>
+            <div class="demo-utility-grid mb-6">
+                <div class="demo-spacing-box mt-4">.mt-4</div>
+                <div class="demo-spacing-box mr-4">.mr-4</div>
+                <div class="demo-spacing-box mb-4">.mb-4</div>
+                <div class="demo-spacing-box ml-4">.ml-4</div>
+                <div class="demo-spacing-box mx-4">.mx-4</div>
+                <div class="demo-spacing-box my-4">.my-4</div>
+            </div>
+
+            <h3 class="h4 mb-4">Gap Utilities</h3>
+            <div class="demo-utility-grid mb-6">
+                <div class="d-flex gap-1">
+                    <div class="demo-spacing-box">Item 1</div>
+                    <div class="demo-spacing-box">Item 2</div>
+                    <div class="demo-spacing-box">Item 3</div>
+                </div>
+                <div class="d-flex gap-2">
+                    <div class="demo-spacing-box">Item 1</div>
+                    <div class="demo-spacing-box">Item 2</div>
+                    <div class="demo-spacing-box">Item 3</div>
+                </div>
+                <div class="d-flex gap-4">
+                    <div class="demo-spacing-box">Item 1</div>
+                    <div class="demo-spacing-box">Item 2</div>
+                    <div class="demo-spacing-box">Item 3</div>
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4">Space Between</h3>
+            <div class="demo-utility-grid mb-6">
+                <div class="space-x-2">
+                    <div class="demo-spacing-box d-inline-block">Item 1</div>
+                    <div class="demo-spacing-box d-inline-block">Item 2</div>
+                    <div class="demo-spacing-box d-inline-block">Item 3</div>
+                </div>
+                <div class="space-x-4">
+                    <div class="demo-spacing-box d-inline-block">Item 1</div>
+                    <div class="demo-spacing-box d-inline-block">Item 2</div>
+                    <div class="demo-spacing-box d-inline-block">Item 3</div>
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4">Stack Utilities</h3>
+            <div class="demo-utility-grid mb-6">
+                <div class="stack-2">
+                    <div class="demo-spacing-box">Stack Item 1</div>
+                    <div class="demo-spacing-box">Stack Item 2</div>
+                    <div class="demo-spacing-box">Stack Item 3</div>
+                </div>
+                <div class="stack-4">
+                    <div class="demo-spacing-box">Stack Item 1</div>
+                    <div class="demo-spacing-box">Stack Item 2</div>
+                    <div class="demo-spacing-box">Stack Item 3</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colors Section -->
+    <section id="colors" class="demo-section">
+        <div class="container">
+            <h2 class="h2 text-center mb-8">Color System</h2>
+            
+            <h3 class="h4 mb-4">Semantic Colors</h3>
+            <div class="row mb-6">
+                <div class="col-12 col-md-3 mb-4">
+                    <div class="demo-color-swatch" style="background-color: #3b82f6;">
+                        Primary
+                    </div>
+                    <p class="text-center text-sm">#3b82f6</p>
+                </div>
+                <div class="col-12 col-md-3 mb-4">
+                    <div class="demo-color-swatch" style="background-color: #6b7280;">
+                        Secondary
+                    </div>
+                    <p class="text-center text-sm">#6b7280</p>
+                </div>
+                <div class="col-12 col-md-3 mb-4">
+                    <div class="demo-color-swatch" style="background-color: #10b981;">
+                        Success
+                    </div>
+                    <p class="text-center text-sm">#10b981</p>
+                </div>
+                <div class="col-12 col-md-3 mb-4">
+                    <div class="demo-color-swatch" style="background-color: #f59e0b;">
+                        Warning
+                    </div>
+                    <p class="text-center text-sm">#f59e0b</p>
+                </div>
+            </div>
+
+            <div class="row mb-6">
+                <div class="col-12 col-md-3 mb-4">
+                    <div class="demo-color-swatch" style="background-color: #ef4444;">
+                        Danger
+                    </div>
+                    <p class="text-center text-sm">#ef4444</p>
+                </div>
+                <div class="col-12 col-md-3 mb-4">
+                    <div class="demo-color-swatch" style="background-color: #06b6d4;">
+                        Info
+                    </div>
+                    <p class="text-center text-sm">#06b6d4</p>
+                </div>
+                <div class="col-12 col-md-3 mb-4">
+                    <div class="demo-color-swatch" style="background-color: #ffffff; border: 1px solid #e5e7eb;" class="light">
+                        White
+                    </div>
+                    <p class="text-center text-sm">#ffffff</p>
+                </div>
+                <div class="col-12 col-md-3 mb-4">
+                    <div class="demo-color-swatch" style="background-color: #000000;">
+                        Black
+                    </div>
+                    <p class="text-center text-sm">#000000</p>
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4">Gray Scale</h3>
+            <div class="row mb-6">
+                <div class="col-12 col-md-2 mb-4">
+                    <div class="demo-color-swatch" style="background-color: #f9fafb;" class="light">
+                        Gray 50
+                    </div>
+                    <p class="text-center text-sm">#f9fafb</p>
+                </div>
+                <div class="col-12 col-md-2 mb-4">
+                    <div class="demo-color-swatch" style="background-color: #f3f4f6;" class="light">
+                        Gray 100
+                    </div>
+                    <p class="text-center text-sm">#f3f4f6</p>
+                </div>
+                <div class="col-12 col-md-2 mb-4">
+                    <div class="demo-color-swatch" style="background-color: #e5e7eb;" class="light">
+                        Gray 200
+                    </div>
+                    <p class="text-center text-sm">#e5e7eb</p>
+                </div>
+                <div class="col-12 col-md-2 mb-4">
+                    <div class="demo-color-swatch" style="background-color: #d1d5db;" class="light">
+                        Gray 300
+                    </div>
+                    <p class="text-center text-sm">#d1d5db</p>
+                </div>
+                <div class="col-12 col-md-2 mb-4">
+                    <div class="demo-color-swatch" style="background-color: #9ca3af;">
+                        Gray 400
+                    </div>
+                    <p class="text-center text-sm">#9ca3af</p>
+                </div>
+                <div class="col-12 col-md-2 mb-4">
+                    <div class="demo-color-swatch" style="background-color: #6b7280;">
+                        Gray 500
+                    </div>
+                    <p class="text-center text-sm">#6b7280</p>
+                </div>
+            </div>
+
+            <div class="row mb-6">
+                <div class="col-12 col-md-2 mb-4">
+                    <div class="demo-color-swatch" style="background-color: #4b5563;">
+                        Gray 600
+                    </div>
+                    <p class="text-center text-sm">#4b5563</p>
+                </div>
+                <div class="col-12 col-md-2 mb-4">
+                    <div class="demo-color-swatch" style="background-color: #374151;">
+                        Gray 700
+                    </div>
+                    <p class="text-center text-sm">#374151</p>
+                </div>
+                <div class="col-12 col-md-2 mb-4">
+                    <div class="demo-color-swatch" style="background-color: #1f2937;">
+                        Gray 800
+                    </div>
+                    <p class="text-center text-sm">#1f2937</p>
+                </div>
+                <div class="col-12 col-md-2 mb-4">
+                    <div class="demo-color-swatch" style="background-color: #111827;">
+                        Gray 900
+                    </div>
+                    <p class="text-center text-sm">#111827</p>
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4">Text Colors</h3>
+            <div class="demo-utility-grid mb-6">
+                <div class="card p-4">
+                    <p class="text-primary">.text-primary</p>
+                </div>
+                <div class="card p-4">
+                    <p class="text-secondary">.text-secondary</p>
+                </div>
+                <div class="card p-4">
+                    <p class="text-success">.text-success</p>
+                </div>
+                <div class="card p-4">
+                    <p class="text-warning">.text-warning</p>
+                </div>
+                <div class="card p-4">
+                    <p class="text-danger">.text-danger</p>
+                </div>
+                <div class="card p-4">
+                    <p class="text-info">.text-info</p>
+                </div>
+                <div class="card p-4">
+                    <p class="text-muted">.text-muted</p>
+                </div>
+                <div class="card p-4">
+                    <p class="text-light">.text-light</p>
+                </div>
+                <div class="card p-4">
+                    <p class="text-dark">.text-dark</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Responsive Section -->
+    <section id="responsive" class="demo-section">
+        <div class="container">
+            <h2 class="h2 text-center mb-8">Responsive Design</h2>
+            
+            <div class="alert alert-info mb-6">
+                <strong>🎯 What Responsive Columns Do:</strong><br>
+                Responsive columns automatically adjust their width and layout based on screen size. 
+                For example, <code>col-12 col-md-6 col-lg-4</code> means:
+                • <strong>Mobile (XS):</strong> 12 columns wide (full width) - stacked vertically<br>
+                • <strong>Tablet (MD):</strong> 6 columns wide (half width) - 2 per row<br>
+                • <strong>Desktop (LG):</strong> 4 columns wide (third width) - 3 per row<br>
+                <strong>Try resizing your browser window to see this in action!</strong>
+            </div>
+            
+            <h3 class="h4 mb-4">Responsive Visibility</h3>
+            <div class="demo-utility-grid mb-6">
+                <div class="card p-4 d-block d-md-none">
+                    <strong>Visible on mobile only</strong><br>
+                    .d-block .d-md-none
+                </div>
+                <div class="card p-4 d-none d-md-block d-lg-none">
+                    <strong>Visible on medium only</strong><br>
+                    .d-none .d-md-block .d-lg-none
+                </div>
+                <div class="card p-4 d-none d-lg-block">
+                    <strong>Visible on large and up</strong><br>
+                    .d-none .d-lg-block
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4">Responsive Text Alignment</h3>
+            <div class="demo-utility-grid mb-6">
+                <div class="card p-4 text-center text-md-left text-lg-center text-xl-right">
+                    <strong>Responsive Text Alignment</strong><br>
+                    .text-center .text-md-left .text-lg-center .text-xl-right
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4">Responsive Spacing</h3>
+            <div class="demo-utility-grid mb-6">
+                <div class="card p-2 p-md-4 p-lg-6">
+                    <strong>Responsive Padding</strong><br>
+                    .p-2 .p-md-4 .p-lg-6
+                </div>
+                <div class="card m-2 m-md-4 m-lg-6">
+                    <strong>Responsive Margin</strong><br>
+                    .m-2 .m-md-4 .m-lg-6
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4">Responsive Grid</h3>
+            
+            <div class="alert alert-info mb-4">
+                <strong>How Responsive Grids Work:</strong><br>
+                • <strong>XS (0-575px):</strong> All columns stack vertically (full width)<br>
+                • <strong>SM (576-767px):</strong> Columns can be 6 wide (2 per row)<br>
+                • <strong>MD (768-991px):</strong> Columns can be 4 wide (3 per row)<br>
+                • <strong>LG (992-1199px):</strong> Columns can be 3 wide (4 per row)<br>
+                • <strong>XL (1200-1399px):</strong> Columns can be 2 wide (6 per row)<br>
+                • <strong>XXL (1400px+):</strong> Columns can be 2 wide (6 per row)
+            </div>
+            
+            <div class="row mb-6">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="demo-grid-item">
+                        <strong>Responsive Column</strong><br>
+                        <small class="text-muted">XS: 12 cols | SM: 6 cols | MD: 4 cols | LG: 3 cols | XL: 2 cols</small>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="demo-grid-item">
+                        <strong>Responsive Column</strong><br>
+                        <small class="text-muted">XS: 12 cols | SM: 6 cols | MD: 4 cols | LG: 3 cols | XL: 2 cols</small>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="demo-grid-item">
+                        <strong>Responsive Column</strong><br>
+                        <small class="text-muted">XS: 12 cols | SM: 6 cols | MD: 4 cols | LG: 3 cols | XL: 2 cols</small>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="demo-grid-item">
+                        <strong>Responsive Column</strong><br>
+                        <small class="text-muted">XS: 12 cols | SM: 6 cols | MD: 4 cols | LG: 3 cols | XL: 2 cols</small>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="demo-grid-item">
+                        <strong>Responsive Column</strong><br>
+                        <small class="text-muted">XS: 12 cols | SM: 6 cols | MD: 4 cols | LG: 3 cols | XL: 2 cols</small>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="demo-grid-item">
+                        <strong>Responsive Column</strong><br>
+                        <small class="text-muted">XS: 12 cols | SM: 6 cols | MD: 4 cols | LG: 3 cols | XL: 2 cols</small>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4">Responsive Grid Examples</h3>
+            <div class="row mb-6">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="demo-grid-item" style="background: #e0f2fe; border-color: #0284c7;">
+                        <strong>col-12 col-md-6 col-lg-4</strong><br>
+                        <small class="text-muted">Mobile: Full width | Tablet: Half width | Desktop: Third width</small>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="demo-grid-item" style="background: #e0f2fe; border-color: #0284c7;">
+                        <strong>col-12 col-md-6 col-lg-4</strong><br>
+                        <small class="text-muted">Mobile: Full width | Tablet: Half width | Desktop: Third width</small>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="demo-grid-item" style="background: #e0f2fe; border-color: #0284c7;">
+                        <strong>col-12 col-md-6 col-lg-4</strong><br>
+                        <small class="text-muted">Mobile: Full width | Tablet: Half width | Desktop: Third width</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-6">
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="demo-grid-item" style="background: #fef3c7; border-color: #d97706;">
+                        <strong>col-12 col-sm-6 col-lg-3</strong><br>
+                        <small class="text-muted">Mobile: Full | Small: Half | Large: Quarter</small>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="demo-grid-item" style="background: #fef3c7; border-color: #d97706;">
+                        <strong>col-12 col-sm-6 col-lg-3</strong><br>
+                        <small class="text-muted">Mobile: Full | Small: Half | Large: Quarter</small>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="demo-grid-item" style="background: #fef3c7; border-color: #d97706;">
+                        <strong>col-12 col-sm-6 col-lg-3</strong><br>
+                        <small class="text-muted">Mobile: Full | Small: Half | Large: Quarter</small>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="demo-grid-item" style="background: #fef3c7; border-color: #d97706;">
+                        <strong>col-12 col-sm-6 col-lg-3</strong><br>
+                        <small class="text-muted">Mobile: Full | Small: Half | Large: Quarter</small>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4">Breakpoint Information</h3>
+            <div class="demo-code-block">
+                <strong>Breakpoints:</strong><br>
+                XS: 0px - 575px<br>
+                SM: 576px - 767px<br>
+                MD: 768px - 991px<br>
+                LG: 992px - 1199px<br>
+                XL: 1200px - 1399px<br>
+                XXL: 1400px+
+            </div>
+            
+            <h3 class="h4 mb-4">Live Responsive Testing</h3>
+            <div class="alert alert-info mb-4">
+                <strong>Current Breakpoint:</strong> <span id="current-breakpoint">Loading...</span><br>
+                <strong>Window Width:</strong> <span id="current-width">Loading...</span><br>
+                <strong>Resize your browser window to see the responsive behavior!</strong>
+            </div>
+            
+            <div class="row mb-6" id="live-test-grid">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="demo-grid-item" style="background: #dcfce7; border-color: #16a34a;">
+                        <strong>Live Test Column 1</strong><br>
+                        <small class="text-muted">Responsive behavior in action</small>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="demo-grid-item" style="background: #dcfce7; border-color: #16a34a;">
+                        <strong>Live Test Column 2</strong><br>
+                        <small class="text-muted">Responsive behavior in action</small>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="demo-grid-item" style="background: #dcfce7; border-color: #16a34a;">
+                        <strong>Live Test Column 3</strong><br>
+                        <small class="text-muted">Responsive behavior in action</small>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="demo-grid-item" style="background: #dcfce7; border-color: #16a34a;">
+                        <strong>Live Test Column 4</strong><br>
+                        <small class="text-muted">Responsive behavior in action</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container text-center">
+            <h3 class="h4 mb-4">GlacierCSS Demo Complete!</h3>
+            <p class="text-muted mb-4">This demo showcases all the features and components available in the framework.</p>
+            <div class="d-flex justify-content-center gap-4 flex-wrap">
+                <button class="btn btn-primary">Get Started</button>
+                <button class="btn btn-outline-light">View Documentation</button>
+                <button class="btn btn-ghost-primary">GitHub</button>
+            </div>
+            <p class="text-sm text-muted mt-6">Built with ❤️ for the modern web</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactive features -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading state to buttons
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function() {
+                if (!this.classList.contains('loading')) {
+                    this.classList.add('loading');
+                    setTimeout(() => {
+                        this.classList.remove('loading');
+                    }, 2000);
+                }
+            });
+        });
+
+        // Add hover effects to cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                if (this.classList.contains('hover-lift')) {
+                    this.style.transform = 'translateY(-4px)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                if (this.classList.contains('hover-lift')) {
+                    this.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Update breakpoint indicator
+        function updateBreakpointIndicator() {
+            const width = window.innerWidth;
+            let breakpoint = 'XS';
+            
+            if (width >= 1400) breakpoint = 'XXL';
+            else if (width >= 1200) breakpoint = 'XL';
+            else if (width >= 992) breakpoint = 'LG';
+            else if (width >= 768) breakpoint = 'MD';
+            else if (width >= 576) breakpoint = 'SM';
+            
+            document.querySelector('.demo-breakpoint-indicator span').textContent = breakpoint;
+            
+            // Update live responsive testing
+            if (document.getElementById('current-breakpoint')) {
+                document.getElementById('current-breakpoint').textContent = breakpoint;
+                document.getElementById('current-width').textContent = width + 'px';
+            }
+        }
+
+        window.addEventListener('resize', updateBreakpointIndicator);
+        updateBreakpointIndicator();
+        
+        // Add visual feedback for responsive behavior
+        function addResponsiveVisualFeedback() {
+            const gridItems = document.querySelectorAll('#live-test-grid .demo-grid-item');
+            const width = window.innerWidth;
+            
+            gridItems.forEach((item, index) => {
+                // Add visual indicators based on current breakpoint
+                item.style.transition = 'all 0.3s ease';
+                
+                if (width < 576) {
+                    // XS: Full width, stack vertically
+                    item.style.background = '#fef2f2';
+                    item.style.borderColor = '#dc2626';
+                    item.innerHTML = `<strong>Column ${index + 1} (XS)</strong><br><small class="text-muted">Full width - stacked vertically</small>`;
+                } else if (width < 768) {
+                    // SM: 2 per row
+                    item.style.background = '#fef3c7';
+                    item.style.borderColor = '#d97706';
+                    item.innerHTML = `<strong>Column ${index + 1} (SM)</strong><br><small class="text-muted">2 per row</small>`;
+                } else if (width < 992) {
+                    // MD: 3 per row
+                    item.style.background = '#e0f2fe';
+                    item.style.borderColor = '#0284c7';
+                    item.innerHTML = `<strong>Column ${index + 1} (MD)</strong><br><small class="text-muted">3 per row</small>`;
+                } else {
+                    // LG+: 4 per row
+                    item.style.background = '#dcfce7';
+                    item.style.borderColor = '#16a34a';
+                    item.innerHTML = `<strong>Column ${index + 1} (LG+)</strong><br><small class="text-muted">4 per row</small>`;
+                }
+            });
+        }
+        
+        window.addEventListener('resize', addResponsiveVisualFeedback);
+        addResponsiveVisualFeedback();
+    </script>
+</body>
+</html>

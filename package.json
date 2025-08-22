@@ -1,0 +1,30 @@
+{
+  "name": "glaciercss",
+  "version": "1.0.0",
+  "description": "A high-performance, minimalistic CSS framework with excellent mobile support",
+  "main": "dist/glaciercss.min.css",
+  "scripts": {
+    "build": "sass src/main.scss:dist/glaciercss.css --style=expanded",
+    "build:min": "sass src/main.scss:dist/glaciercss.min.css --style=compressed",
+    "watch": "sass src/main.scss:dist/glaciercss.css --watch",
+    "dev": "npm run build && npm run watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "css",
+    "framework",
+    "responsive",
+    "mobile-first",
+    "performance",
+    "minimalistic"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.0"
+  },
+  "files": [
+    "dist/",
+    "src/"
+  ]
+}

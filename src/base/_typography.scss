@@ -1,0 +1,300 @@
+// =============================================================================
+// TYPOGRAPHY
+// =============================================================================
+
+// Import variables
+@import "../variables/variables";
+
+// Base typography
+body {
+  font-family: $font-family-sans;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+  color: $gray-900;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Headings
+h1, .h1 {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-6;
+  
+  @include media-up(md) {
+    font-size: $font-size-4xl;
+  }
+  
+  @include media-up(lg) {
+    font-size: $font-size-5xl;
+  }
+}
+
+h2, .h2 {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-5;
+  
+  @include media-up(md) {
+    font-size: $font-size-3xl;
+  }
+}
+
+h3, .h3 {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-snug;
+  margin-bottom: $spacing-4;
+  
+  @include media-up(md) {
+    font-size: $font-size-2xl;
+  }
+}
+
+h4, .h4 {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-snug;
+  margin-bottom: $spacing-3;
+  
+  @include media-up(md) {
+    font-size: $font-size-xl;
+  }
+}
+
+h5, .h5 {
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-normal;
+  margin-bottom: $spacing-2;
+  
+  @include media-up(md) {
+    font-size: $font-size-lg;
+  }
+}
+
+h6, .h6 {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-normal;
+  margin-bottom: $spacing-2;
+  
+  @include media-up(md) {
+    font-size: $font-size-base;
+  }
+}
+
+// Paragraphs
+p, .text {
+  margin-bottom: $spacing-4;
+  line-height: $line-height-relaxed;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Text sizes
+.text-xs { font-size: $font-size-xs; }
+.text-sm { font-size: $font-size-sm; }
+.text-base { font-size: $font-size-base; }
+.text-lg { font-size: $font-size-lg; }
+.text-xl { font-size: $font-size-xl; }
+.text-2xl { font-size: $font-size-2xl; }
+.text-3xl { font-size: $font-size-3xl; }
+.text-4xl { font-size: $font-size-4xl; }
+.text-5xl { font-size: $font-size-5xl; }
+
+// Font weights
+.font-light { font-weight: $font-weight-light; }
+.font-normal { font-weight: $font-weight-normal; }
+.font-medium { font-weight: $font-weight-medium; }
+.font-semibold { font-weight: $font-weight-semibold; }
+.font-bold { font-weight: $font-weight-bold; }
+.font-extrabold { font-weight: $font-weight-extrabold; }
+
+// Line heights
+.leading-tight { line-height: $line-height-tight; }
+.leading-snug { line-height: $line-height-snug; }
+.leading-normal { line-height: $line-height-normal; }
+.leading-relaxed { line-height: $line-height-relaxed; }
+.leading-loose { line-height: $line-height-loose; }
+
+// Text alignment
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+// Text transforms
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+
+// Text decoration
+.underline { text-decoration: underline; }
+.line-through { text-decoration: line-through; }
+.no-underline { text-decoration: none; }
+
+// Text colors
+.text-primary { color: $primary; }
+.text-secondary { color: $secondary; }
+.text-success { color: $success; }
+.text-warning { color: $warning; }
+.text-danger { color: $danger; }
+.text-info { color: $info; }
+.text-muted { color: $gray-600; }
+.text-light { color: $gray-400; }
+.text-dark { color: $gray-900; }
+
+// Links
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $primary-dark;
+    text-decoration: underline;
+  }
+  
+  &:focus {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+// Lists
+ul, ol {
+  margin-bottom: $spacing-4;
+  padding-left: $spacing-6;
+  
+  li {
+    margin-bottom: $spacing-2;
+    line-height: $line-height-relaxed;
+  }
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+// Definition lists
+dl {
+  margin-bottom: $spacing-4;
+}
+
+dt {
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-1;
+}
+
+dd {
+  margin-bottom: $spacing-3;
+  margin-left: $spacing-4;
+}
+
+// Blockquotes
+blockquote {
+  border-left: 4px solid $primary;
+  padding-left: $spacing-4;
+  margin: $spacing-6 0;
+  font-style: italic;
+  color: $gray-700;
+  
+  p {
+    margin-bottom: $spacing-2;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  cite {
+    font-size: $font-size-sm;
+    color: $gray-600;
+    
+    &::before {
+      content: "— ";
+    }
+  }
+}
+
+// Code
+code {
+  background-color: $gray-100;
+  color: $gray-900;
+  padding: $spacing-1 $spacing-2;
+  border-radius: $border-radius-sm;
+  font-family: $font-family-mono;
+  font-size: 0.875em;
+}
+
+pre {
+  background-color: $gray-900;
+  color: $gray-100;
+  padding: $spacing-4;
+  border-radius: $border-radius;
+  overflow-x: auto;
+  margin-bottom: $spacing-4;
+  
+  code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    border-radius: 0;
+  }
+}
+
+// Small text
+small, .text-small {
+  font-size: $font-size-sm;
+  color: $gray-600;
+}
+
+// Mark text
+mark, .mark {
+  background-color: rgba($warning, 0.2);
+  color: $gray-900;
+  padding: $spacing-1 $spacing-2;
+  border-radius: $border-radius-sm;
+}
+
+// Abbreviations
+abbr[title] {
+  border-bottom: 1px dotted $gray-400;
+  cursor: help;
+  text-decoration: none;
+}
+
+// Address
+address {
+  font-style: normal;
+  line-height: $line-height-normal;
+  margin-bottom: $spacing-4;
+}
+
+// Horizontal rule
+hr {
+  border: 0;
+  border-top: 1px solid $gray-200;
+  margin: $spacing-8 0;
+}
+
+// Selection
+::selection {
+  background-color: rgba($primary, 0.2);
+  color: $gray-900;
+}
+
+::-moz-selection {
+  background-color: rgba($primary, 0.2);
+  color: $gray-900;
+}

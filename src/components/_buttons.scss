@@ -1,0 +1,356 @@
+// =============================================================================
+// BUTTONS
+// =============================================================================
+
+// Import variables and mixins
+@import "../variables/variables";
+@import "../variables/mixins";
+
+// Base button styles
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-3 $spacing-4;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: $border-radius;
+  transition: all $transition-fast;
+  min-height: 44px; // Touch-friendly minimum height
+  
+  &:hover {
+    text-decoration: none;
+  }
+  
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba($primary, 0.25);
+  }
+  
+  &:disabled,
+  &.disabled {
+    opacity: 0.65;
+    pointer-events: none;
+  }
+  
+  // Icon support
+  .icon {
+    margin-right: $spacing-2;
+    
+    &:last-child {
+      margin-right: 0;
+      margin-left: $spacing-2;
+    }
+  }
+  
+  // Loading state
+  &.loading {
+    position: relative;
+    color: transparent;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      width: 1em;
+      height: 1em;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      border-right-color: transparent;
+      animation: spin 0.75s linear infinite;
+    }
+  }
+}
+
+// Button variants
+.btn-primary {
+  @include button-variant($primary, $primary, $white);
+}
+
+.btn-secondary {
+  @include button-variant($secondary, $secondary, $white);
+}
+
+.btn-success {
+  @include button-variant($success, $success, $white);
+}
+
+.btn-warning {
+  @include button-variant($warning, $warning, $white);
+}
+
+.btn-danger {
+  @include button-variant($danger, $danger, $white);
+}
+
+.btn-info {
+  @include button-variant($info, $info, $white);
+}
+
+.btn-light {
+  @include button-variant($gray-100, $gray-300, $gray-900);
+}
+
+.btn-dark {
+  @include button-variant($gray-800, $gray-800, $white);
+}
+
+// Outline variants
+.btn-outline-primary {
+  @include button-variant(transparent, $primary, $primary);
+  
+  &:hover {
+    background-color: $primary;
+    color: $white;
+  }
+}
+
+.btn-outline-secondary {
+  @include button-variant(transparent, $secondary, $secondary);
+  
+  &:hover {
+    background-color: $secondary;
+    color: $white;
+  }
+}
+
+.btn-outline-success {
+  @include button-variant(transparent, $success, $success);
+  
+  &:hover {
+    background-color: $success;
+    color: $white;
+  }
+}
+
+.btn-outline-warning {
+  @include button-variant(transparent, $warning, $warning);
+  
+  &:hover {
+    background-color: $warning;
+    color: $white;
+  }
+}
+
+.btn-outline-danger {
+  @include button-variant(transparent, $danger, $danger);
+  
+  &:hover {
+    background-color: $danger;
+    color: $white;
+  }
+}
+
+.btn-outline-info {
+  @include button-variant(transparent, $info, $info);
+  
+  &:hover {
+    background-color: $info;
+    color: $white;
+  }
+}
+
+.btn-outline-light {
+  @include button-variant(transparent, $gray-300, $gray-700);
+  
+  &:hover {
+    background-color: $gray-300;
+    color: $gray-900;
+  }
+}
+
+.btn-outline-dark {
+  @include button-variant(transparent, $gray-800, $gray-800);
+  
+  &:hover {
+    background-color: $gray-800;
+    color: $white;
+  }
+}
+
+// Ghost variants (no background, no border)
+.btn-ghost-primary {
+  background-color: transparent;
+  border-color: transparent;
+  color: $primary;
+  
+  &:hover {
+    background-color: rgba($primary, 0.1);
+    color: $primary-dark;
+  }
+}
+
+.btn-ghost-secondary {
+  background-color: transparent;
+  border-color: transparent;
+  color: $secondary;
+  
+  &:hover {
+    background-color: rgba($secondary, 0.1);
+    color: $secondary-dark;
+  }
+}
+
+// Button sizes
+.btn-sm {
+  @include button-size($spacing-2, $spacing-3, $font-size-sm, $border-radius-sm);
+  min-height: 36px;
+}
+
+.btn-lg {
+  @include button-size($spacing-4, $spacing-6, $font-size-lg, $border-radius-lg);
+  min-height: 52px;
+}
+
+.btn-xl {
+  @include button-size($spacing-5, $spacing-8, $font-size-xl, $border-radius-lg);
+  min-height: 60px;
+}
+
+// Block button
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+// Button groups
+.btn-group {
+  display: inline-flex;
+  vertical-align: middle;
+  
+  .btn {
+    position: relative;
+    flex: 1 1 auto;
+    
+    &:not(:first-child) {
+      margin-left: -1px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    
+    &:hover,
+    &:focus,
+    &:active {
+      z-index: 1;
+    }
+  }
+  
+  .btn:first-child {
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+  }
+  
+  .btn:last-child {
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+}
+
+// Vertical button group
+.btn-group-vertical {
+  display: inline-flex;
+  flex-direction: column;
+  vertical-align: middle;
+  
+  .btn {
+    position: relative;
+    flex: 1 1 auto;
+    
+    &:not(:first-child) {
+      margin-top: -1px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    
+    &:not(:last-child) {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    
+    &:hover,
+    &:focus,
+    &:active {
+      z-index: 1;
+    }
+  }
+  
+  .btn:first-child {
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+  }
+  
+  .btn:last-child {
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+}
+
+// Button toolbar
+.btn-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  
+  .btn-group {
+    margin-right: $spacing-2;
+    
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+// Responsive button sizes
+@include media-down(sm) {
+  .btn {
+    min-height: 48px; // Larger touch target on mobile
+    padding: $spacing-3 $spacing-4;
+  }
+  
+  .btn-sm {
+    min-height: 40px;
+    padding: $spacing-2 $spacing-3;
+  }
+  
+  .btn-lg {
+    min-height: 56px;
+    padding: $spacing-4 $spacing-6;
+  }
+  
+  .btn-xl {
+    min-height: 64px;
+    padding: $spacing-5 $spacing-8;
+  }
+}
+
+// Loading animation
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Focus ring animation
+.btn:focus {
+  animation: focusRing 0.2s ease-out;
+}
+
+@keyframes focusRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba($primary, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 3px rgba($primary, 0.25);
+  }
+}

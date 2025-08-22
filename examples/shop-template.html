@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlacierCSS Shop Template</title>
+    <link rel="stylesheet" href="../dist/glaciercss.min.css">
+    <style>
+        .shop-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            height: 200px;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 3rem;
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #10b981;
+        }
+        
+        .category-badge {
+            background: #e0f2fe;
+            color: #0284c7;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .cart-icon {
+            position: relative;
+        }
+        
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .newsletter-input {
+            border: 1px solid #374151;
+            background: #374151;
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            width: 100%;
+        }
+        
+        .newsletter-input::placeholder {
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white border-bottom" style="border-color: #e5e7eb !important;">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center py-3">
+                <h1 class="h3 mb-0 text-primary">GlacierShop</h1>
+                
+                <div class="d-flex align-items-center gap-4">
+                    <a href="#" class="text-decoration-none text-dark">Home</a>
+                    <a href="#" class="text-decoration-none text-dark">Products</a>
+                    <a href="#" class="text-decoration-none text-dark">About</a>
+                    <a href="#" class="text-decoration-none text-dark">Contact</a>
+                    
+                    <div class="cart-icon">
+                        <button class="btn btn-outline-primary">
+                            🛒 Cart
+                        </button>
+                        <span class="cart-badge">3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="shop-hero">
+        <div class="container text-center">
+            <h1 class="h1 mb-4">Welcome to GlacierShop</h1>
+            <p class="text-xl mb-6">Discover amazing products with our responsive shop template</p>
+            <button class="btn btn-light btn-lg">Shop Now</button>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="py-6">
+        <div class="container">
+            <h2 class="h2 text-center mb-6">Shop by Category</h2>
+            <div class="row">
+                <div class="col-6 col-md-3 mb-4">
+                    <div class="card text-center p-4 hover-lift">
+                        <div class="text-4xl mb-3">👕</div>
+                        <h4 class="h5">Clothing</h4>
+                        <p class="text-muted">Fashion & Style</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mb-4">
+                    <div class="card text-center p-4 hover-lift">
+                        <div class="text-4xl mb-3">📱</div>
+                        <h4 class="h5">Electronics</h4>
+                        <p class="text-muted">Tech & Gadgets</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mb-4">
+                    <div class="card text-center p-4 hover-lift">
+                        <div class="text-4xl mb-3">🏠</div>
+                        <h4 class="h5">Home</h4>
+                        <p class="text-muted">Decor & Living</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mb-4">
+                    <div class="card text-center p-4 hover-lift">
+                        <div class="text-4xl mb-3">📚</div>
+                        <h4 class="h5">Books</h4>
+                        <p class="text-muted">Knowledge & Learning</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-6 bg-gray-50">
+        <div class="container">
+            <h2 class="h2 text-center mb-6">Featured Products</h2>
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                    <div class="card product-card">
+                        <div class="product-image">📱</div>
+                        <div class="card-body">
+                            <span class="category-badge">Electronics</span>
+                            <h4 class="card-title mt-2">Smartphone Pro</h4>
+                            <p class="card-text text-muted">Latest smartphone with amazing features</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$699</span>
+                                <button class="btn btn-primary btn-sm">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                    <div class="card product-card">
+                        <div class="product-image">👕</div>
+                        <div class="card-body">
+                            <span class="category-badge">Clothing</span>
+                            <h4 class="card-title mt-2">Premium T-Shirt</h4>
+                            <p class="card-text text-muted">Comfortable cotton t-shirt</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$29</span>
+                                <button class="btn btn-primary btn-sm">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                    <div class="card product-card">
+                        <div class="product-image">🏠</div>
+                        <div class="card-body">
+                            <span class="category-badge">Home</span>
+                            <h4 class="card-title mt-2">Modern Lamp</h4>
+                            <p class="card-text text-muted">Elegant lighting solution</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$89</span>
+                                <button class="btn btn-primary btn-sm">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                    <div class="card product-card">
+                        <div class="product-image">📚</div>
+                        <div class="card-body">
+                            <span class="category-badge">Books</span>
+                            <h4 class="card-title mt-2">Web Design Guide</h4>
+                            <p class="card-text text-muted">Complete guide to modern web design</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$39</span>
+                                <button class="btn btn-primary btn-sm">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-6">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 text-center">
+                    <h3 class="h3 mb-4">Stay Updated</h3>
+                    <p class="text-muted mb-4">Get the latest products and offers delivered to your inbox</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email">
+                        <button class="btn btn-primary">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 mb-4">
+                    <h4 class="h5 mb-3">GlacierShop</h4>
+                    <p class="text-muted">Your one-stop shop for amazing products built with GlacierCSS.</p>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <h4 class="h5 mb-3">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">About Us</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Contact</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Shipping Info</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <h4 class="h5 mb-3">Connect</h4>
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-outline-light">📘 Facebook</button>
+                        <button class="btn btn-outline-light">📷 Instagram</button>
+                        <button class="btn btn-outline-light">🐦 Twitter</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: #374151;">
+            <div class="text-center text-muted">
+                <p>&copy; 2024 GlacierShop. Built with ❤️ using GlacierCSS.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add to cart functionality
+        document.querySelectorAll('.btn-primary').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.textContent === 'Add to Cart') {
+                    this.textContent = 'Added!';
+                    this.classList.remove('btn-primary');
+                    this.classList.add('btn-success');
+                    
+                    setTimeout(() => {
+                        this.textContent = 'Add to Cart';
+                        this.classList.remove('btn-success');
+                        this.classList.add('btn-primary');
+                    }, 2000);
+                }
+            });
+        });
+
+        // Newsletter subscription
+        document.querySelector('.btn-primary').addEventListener('click', function() {
+            const email = document.querySelector('.newsletter-input').value;
+            if (email) {
+                this.textContent = 'Subscribed!';
+                this.classList.remove('btn-primary');
+                this.classList.add('btn-success');
+                
+                setTimeout(() => {
+                    this.textContent = 'Subscribe';
+                    this.classList.remove('btn-success');
+                    this.classList.add('btn-primary');
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlacierCSS Examples & Templates</title>
+    <link rel="stylesheet" href="../dist/glaciercss.min.css">
+    <style>
+        .template-card {
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .template-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .template-preview {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white border-bottom" style="border-color: #e5e7eb !important;">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center py-3">
+                <h1 class="h3 mb-0 text-primary">GlacierCSS Examples</h1>
+                <a href="../README.md" class="btn btn-outline-primary">Back to README</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="h1 mb-4">GlacierCSS Examples & Templates</h1>
+            <p class="text-xl mb-6">Ready-to-use templates showcasing the framework's capabilities</p>
+            <p class="text-lg opacity-75">From basic demos to complete website templates</p>
+        </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section class="py-8">
+        <div class="container">
+            <h2 class="h2 text-center mb-8">Available Templates</h2>
+            
+            <div class="row">
+                <!-- Complete Demo -->
+                <div class="col-12 col-md-6 col-lg-4 mb-6">
+                    <div class="card template-card">
+                        <div class="template-preview">🎯</div>
+                        <div class="card-body">
+                            <h4 class="card-title">Complete Demo</h4>
+                            <p class="card-text text-muted">Comprehensive showcase of all GlacierCSS features, components, and utilities.</p>
+                            <ul class="list-unstyled mb-4">
+                                <li>✅ All components</li>
+                                <li>✅ Grid system</li>
+                                <li>✅ Utility classes</li>
+                                <li>✅ Responsive design</li>
+                            </ul>
+                            <a href="demo.html" class="btn btn-primary w-100">View Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shop Template -->
+                <div class="col-12 col-md-6 col-lg-4 mb-6">
+                    <div class="card template-card">
+                        <div class="template-preview">🛍️</div>
+                        <div class="card-body">
+                            <h4 class="card-title">Shop Template</h4>
+                            <p class="card-text text-muted">E-commerce website template with product grid, categories, and shopping cart.</p>
+                            <ul class="list-unstyled mb-4">
+                                <li>✅ Product showcase</li>
+                                <li>✅ Category navigation</li>
+                                <li>✅ Shopping cart</li>
+                                <li>✅ Newsletter signup</li>
+                            </ul>
+                            <a href="shop-template.html" class="btn btn-primary w-100">View Template</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Template -->
+                <div class="col-12 col-md-6 col-lg-4 mb-6">
+                    <div class="card template-card">
+                        <div class="template-preview">🎨</div>
+                        <div class="card-body">
+                            <h4 class="card-title">Portfolio Template</h4>
+                            <p class="card-text text-muted">Professional portfolio template for developers, designers, and creatives.</p>
+                            <ul class="list-unstyled mb-4">
+                                <li>✅ Hero section</li>
+                                <li>✅ Project showcase</li>
+                                <li>✅ Skills & experience</li>
+                                <li>✅ Contact form</li>
+                            </ul>
+                            <a href="portfolio-template.html" class="btn btn-primary w-100">View Template</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-8 bg-gray-50">
+        <div class="container">
+            <h2 class="h2 text-center mb-8">Why Use These Templates?</h2>
+            
+            <div class="row">
+                <div class="col-12 col-md-4 mb-6 text-center">
+                    <div class="feature-icon">🚀</div>
+                    <h4 class="h5">Ready to Use</h4>
+                    <p class="text-muted">All templates are production-ready and can be customized for your specific needs.</p>
+                </div>
+                
+                <div class="col-12 col-md-4 mb-6 text-center">
+                    <div class="feature-icon">📱</div>
+                    <h4 class="h5">Mobile-First</h4>
+                    <p class="text-muted">Built with mobile-first responsive design principles for optimal user experience.</p>
+                </div>
+                
+                <div class="col-12 col-md-4 mb-6 text-center">
+                    <div class="feature-icon">⚡</div>
+                    <h4 class="h5">Performance Optimized</h4>
+                    <p class="text-muted">Lightweight and fast, ensuring your websites load quickly and perform well.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section class="py-8">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8 text-center">
+                    <h2 class="h2 mb-4">Ready to Get Started?</h2>
+                    <p class="text-lg mb-6">These templates demonstrate how easy it is to build beautiful, responsive websites with GlacierCSS.</p>
+                    
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <a href="../README.md" class="btn btn-primary btn-lg">View Documentation</a>
+                        <a href="https://github.com/yourusername/GlacierCSS" class="btn btn-outline-primary btn-lg">GitHub Repository</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-6">
+        <div class="container text-center">
+            <p class="text-muted mb-0">&copy; 2024 GlacierCSS. Built with ❤️ for the modern web.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add hover effects to template cards
+        document.querySelectorAll('.template-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-4px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

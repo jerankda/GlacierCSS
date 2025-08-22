@@ -1,0 +1,382 @@
+// =============================================================================
+// GLACIERCSS - MAIN ENTRY POINT
+// =============================================================================
+
+// Import variables and mixins first
+@import "variables/variables";
+@import "variables/mixins";
+
+// Base styles
+@import "base/reset";
+@import "base/typography";
+
+// Layout components
+@import "layout/grid";
+
+// Component styles
+@import "components/buttons";
+@import "components/cards";
+
+// Utility classes
+@import "utilities/spacing";
+
+// =============================================================================
+// GLOBAL STYLES & OVERRIDES
+// =============================================================================
+
+// Smooth scrolling for the entire page
+html {
+  scroll-behavior: smooth;
+}
+
+// Focus styles for accessibility
+:focus-visible {
+  outline: 2px solid $primary;
+  outline-offset: 2px;
+}
+
+// Selection styles
+::selection {
+  background-color: rgba($primary, 0.2);
+  color: $gray-900;
+}
+
+::-moz-selection {
+  background-color: rgba($primary, 0.2);
+  color: $gray-900;
+}
+
+// =============================================================================
+// PERFORMANCE OPTIMIZATIONS
+// =============================================================================
+
+// Optimize paint and layout operations
+.card,
+.btn,
+.form-control {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+// Optimize animations for users who prefer reduced motion
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// =============================================================================
+// MOBILE OPTIMIZATIONS
+// =============================================================================
+
+// Ensure touch targets are large enough on mobile
+@media (max-width: 767px) {
+  .btn,
+  .card-interactive {
+    min-height: 44px; // iOS recommended minimum
+  }
+  
+  // Increase spacing on mobile for better touch experience
+  .container {
+    padding-left: $spacing-3;
+    padding-right: $spacing-3;
+  }
+  
+  // Stack elements vertically on mobile
+  .row {
+    flex-direction: column;
+  }
+  
+  .col {
+    margin-bottom: $spacing-4;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// =============================================================================
+// PRINT STYLES
+// =============================================================================
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: $black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  .card {
+    border: 1px solid $gray-400 !important;
+    break-inside: avoid;
+  }
+  
+  .btn {
+    border: 1px solid $gray-400 !important;
+  }
+  
+  .container {
+    max-width: none !important;
+    width: 100% !important;
+  }
+}
+
+// =============================================================================
+// UTILITY CLASSES
+// =============================================================================
+
+// Display utilities
+.d-block { display: block !important; }
+.d-inline { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
+.d-flex { display: flex !important; }
+.d-inline-flex { display: inline-flex !important; }
+.d-none { display: none !important; }
+
+// Position utilities
+.position-static { position: static !important; }
+.position-relative { position: relative !important; }
+.position-absolute { position: absolute !important; }
+.position-fixed { position: fixed !important; }
+.position-sticky { position: sticky !important; }
+
+// Text utilities
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+.text-justify { text-align: justify !important; }
+
+// Float utilities
+.float-left { float: left !important; }
+.float-right { float: right !important; }
+.float-none { float: none !important; }
+
+// Clear utilities
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+// Overflow utilities
+.overflow-auto { overflow: auto !important; }
+.overflow-hidden { overflow: hidden !important; }
+.overflow-visible { overflow: visible !important; }
+.overflow-scroll { overflow: scroll !important; }
+
+// Cursor utilities
+.cursor-pointer { cursor: pointer !important; }
+.cursor-default { cursor: default !important; }
+.cursor-not-allowed { cursor: not-allowed !important; }
+
+// User select utilities
+.user-select-none { user-select: none !important; }
+.user-select-auto { user-select: auto !important; }
+.user-select-all { user-select: all !important; }
+
+// Visibility utilities
+.visible { visibility: visible !important; }
+.invisible { visibility: hidden !important; }
+
+// =============================================================================
+// RESPONSIVE UTILITIES
+// =============================================================================
+
+// Generate responsive utilities for each breakpoint
+@each $breakpoint in map-keys($container-max-widths) {
+  $infix: "-#{$breakpoint}";
+  
+  @include media-up($breakpoint) {
+    .d#{$infix}-none { display: none !important; }
+    .d#{$infix}-block { display: block !important; }
+    .d#{$infix}-inline { display: inline !important; }
+    .d#{$infix}-inline-block { display: inline-block !important; }
+    .d#{$infix}-flex { display: flex !important; }
+    .d#{$infix}-inline-flex { display: inline-flex !important; }
+    
+    .text#{$infix}-left { text-align: left !important; }
+    .text#{$infix}-center { text-align: center !important; }
+    .text#{$infix}-right { text-align: right !important; }
+    .text#{$infix}-justify { text-align: justify !important; }
+    
+    .float#{$infix}-left { float: left !important; }
+    .float#{$infix}-right { float: right !important; }
+    .float#{$infix}-none { float: none !important; }
+  }
+}
+
+// =============================================================================
+// ANIMATIONS
+// =============================================================================
+
+// Fade in animation
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Slide up animation
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Slide down animation
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Spin animation
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Pulse animation
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+// Bounce animation
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+// =============================================================================
+// HELPER CLASSES
+// =============================================================================
+
+// Screen reader only
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Truncate text
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Break text
+.text-break {
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+// Responsive images
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.img-thumbnail {
+  padding: $spacing-2;
+  background-color: $white;
+  border: 1px solid $gray-200;
+  border-radius: $border-radius;
+  max-width: 100%;
+  height: auto;
+}
+
+// Rounded images
+.img-rounded {
+  border-radius: $border-radius;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+// =============================================================================
+// ACCESSIBILITY
+// =============================================================================
+
+// Skip to main content link
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: $primary;
+  color: $white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: $border-radius;
+  z-index: 1000;
+  
+  &:focus {
+    top: 6px;
+  }
+}
+
+// Focus indicators
+.focus-visible {
+  outline: 2px solid $primary;
+  outline-offset: 2px;
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .card {
+    border: 2px solid $gray-900;
+  }
+  
+  .btn {
+    border: 2px solid currentColor;
+  }
+}
