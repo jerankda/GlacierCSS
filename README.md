@@ -77,7 +77,7 @@ Download the latest release from GitHub and include `glaciercss.min.css` in your
 
 ## 📚 Examples & Templates
 
-### Live Demo
+### (soon Live) Demo
 - **[Complete Demo](examples/demo.html)** - Comprehensive showcase of all features
 - **[Shop Template](examples/shop-template.html)** - E-commerce website template
 - **[Portfolio Template](examples/portfolio-template.html)** - Professional portfolio template
