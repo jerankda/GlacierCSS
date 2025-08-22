@@ -161,13 +161,10 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read our contributing guidelines before submitting pull requests.
-
-## 📞 Support
+Contributions are welcome!
 
 - Create an issue for bugs or feature requests
 - Check the documentation for common questions
-- Join our community discussions
 
 ---
 
